@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>TextAnimation</title>
+
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+
+    <script src="TextAnimation/TextAnimation.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+
+    <!-- Aditional styles, not important -->
+    <style>
+
+    </style>
+    <!-- End of: Aditional styles -->
+</head>
+
+<body>
+    <div class="container">
+
+
+
+
+
+        <!-- Example 1 -->
+        <div class="row">
+            <div class="col-xs-12">
+                <h1>Example 1</h1>
+                <h4>With all available options</h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <h1 id="example_1"></h1>
+            </div>
+        </div>
+        <script>
+            var example_1 = new TextAnimation();
+            example_1.init({
+                id: "example_1",
+                messages: ["Sample text", "Another sample"],
+                dealy: 600,
+                start_message: "Start message",
+                change_time_per_char: 6,
+                attemps_max: 6,
+                attemps_min: 3,
+                force_start: false // Skip first dealy.
+            });
+        </script>
+        <!-- End of: Example 1 -->
+
+
+
+
+
+
+        <!-- Example 2 -->
+        <div class="row">
+            <div class="col-xs-12">
+                <h1>Example 2</h1>
+                <h4>With default options (not recomended)</h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <h1 id="example_2"></h1>
+            </div>
+        </div>
+        <script>
+            var example_2 = new TextAnimation();
+            example_2.init({
+                id: "example_2",
+                messages: ["Message 1", "Another message"]
+            });
+        </script>
+        <!-- End of: Example 2 -->
+
+
+
+
+
+
+
+
+    </div>
+</body>
+
+</html>
