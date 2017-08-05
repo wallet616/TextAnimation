@@ -64,7 +64,24 @@ example_2.init({
 });
 ```
 
-TODO: methods example.
+Examples of method usage: 
+
+```
+// Stops playing the animation.
+example_3.stop();
+
+// Starts playing the animation.
+example_3.start();
+
+
+// Change the messages to be displayed, with possible arguments:
+// 1. new_messages - array - array of messages.
+// 2. force_start - bolean (default: flase) - force new messages to be displayed instantly.
+example_3.set_messages(["Yes or no", "No, I am not sure"], false);
+
+// Stop playing animation and remove the element from DOM.
+example_3.remove();
+```
 
 Since the content of element is pure `text node` there is no need to assign `reload` method on viewport size change.
 
@@ -85,7 +102,12 @@ Since the content of element is pure `text node` there is no need to assign `rel
 
 ##### Methods description
 
-TODO: this.
+| Name             	| Arguments description                                                                    	| Description                                                     	|
+|------------------	|------------------------------------------------------------------------------------------	|-----------------------------------------------------------------	|
+| **stop**         	| No arguments                                                                             	| Stops playing the animation.                                    	|
+| **start**        	| No arguments                                                                             	| Starts playing the animation.                                   	|
+| **set_messages** 	| 1. **new_messages** - Array of strings <br> 2. **force_start** - Bolean (default: false) 	| Change the messages to be displayed, with possible arguments.   	|
+| **remove**       	| No arguments                                                                             	| Stop playing animation and remove the element from DOM.         	|
 
 ### Known issues
 
