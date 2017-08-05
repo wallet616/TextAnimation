@@ -41,14 +41,27 @@
         <script>
             var example_1 = new TextAnimation();
             example_1.init({
+                // Elements ID.
                 id: "example_1",
+
+                // Array of messages.
                 messages: ["Sample text", "Another sample"],
+
+                // Dealy in [ms] between changing the message.
                 dealy: 600,
+
+                // First message, display only at the beginning.
                 start_message: "Start message",
-                change_time_per_char: 6,
+
+                // Dealy between single character change.
+                change_time_per_char: 4,
+
+                // Maximal and minimal attempts that will be taken to fit character for its place.
                 attemps_max: 6,
                 attemps_min: 3,
-                force_start: false // Skip first dealy.
+
+                // Allows to skip first dealy, after .init() method is called.
+                force_start: false
             });
         </script>
         <!-- End of: Example 1 -->
@@ -78,6 +91,57 @@
             });
         </script>
         <!-- End of: Example 2 -->
+
+
+
+
+
+
+
+
+
+        <!-- Example 3 -->
+        <div class="row">
+            <div class="col-xs-12">
+                <h1>Example 3</h1>
+                <h4>More methods</h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <h1 id="example_3"></h1>
+            </div>
+        </div>
+        <script>
+            var example_3 = new TextAnimation();
+            example_3.init({
+                id: "example_3",
+                messages: ["Sample text"],
+                dealy: 300,
+                start_message: "",
+                change_time_per_char: 7,
+                attemps_max: 5,
+                attemps_min: 3,
+                force_start: true
+            });
+
+            // Stops playing the animation.
+            setTimeout(() => example_3.stop(), 4000);
+
+            // Starts playing the animation.
+            setTimeout(() => example_3.start(), 6000);
+
+
+            // Change the messages to be displayed, with possible arguments:
+            // 1. new_messages - array - array of messages.
+            // 2. force_start - bolean (default: flase) - force new messages to be displayed instantly.
+            setTimeout(() => example_3.set_messages(["Yes or no", "No, I am not sure"], false), 7000);
+            setTimeout(() => example_3.set_messages(["Dunno"], true), 10000);
+
+            // Stop playing animation and remove the element from DOM.
+            setTimeout(() => example_3.remove(), 19000);
+        </script>
+        <!-- End of: Example 3 -->
 
 
 

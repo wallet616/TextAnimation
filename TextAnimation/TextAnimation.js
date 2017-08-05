@@ -3,6 +3,7 @@
 class TextAnimation {
     constructor() {
         this.is_initialized = false;
+        this.lock = false;
 
         this.messages_list = [];
         this.element;
@@ -20,7 +21,6 @@ class TextAnimation {
         };
 
 
-        //this.change_at_once;
         this.change_time_per_char;
         this.attemps_max;
         this.attemps_min;
@@ -40,6 +40,9 @@ class TextAnimation {
 
         this.random_characters = "QWERTYUIOPASDFGHJKLZXCVBNMqwertyuiopasdfghjklzxcvbnm1234567890";
     }
+
+
+
 
     init(settings) {
         ////////////////////////////////////////////////////////////////////////////////
@@ -164,6 +167,8 @@ class TextAnimation {
     }
 
 
+
+
     display_message() {
         this.element.innerHTML = this.message_current.text;
     }
@@ -172,6 +177,8 @@ class TextAnimation {
 
 
     loop() {
+        if (this.lock === true) return;
+
         this.timer.counter += 10;
 
         switch (this.timer.status) {
@@ -227,6 +234,7 @@ class TextAnimation {
 
 
 
+
     generate() {
         this.message_current.id++;
         if (this.message_current.id >= this.messages_list.length) this.message_current.id = 0;
@@ -263,9 +271,16 @@ class TextAnimation {
         }
     }
 
+
+
+
     get_random_character() {
         return this.random_characters[Math.floor((Math.random() * this.random_characters.length))];
     }
+
+
+
+
 
     resize() {
         for (var i = 0; i < this.message_new.length; i++) {
@@ -273,6 +288,9 @@ class TextAnimation {
                 this.message_current.length = i + 1;
         }
     }
+
+
+
 
 
     change_text() {
@@ -296,5 +314,49 @@ class TextAnimation {
         this.message_current.text = msg;
 
         this.display_message();
+    }
+
+
+
+
+    stop() {
+        if (this.lock === true) return;
+        this.lock = true;
+    }
+
+
+
+
+    start() {
+        if (this.lock === false) return;
+        this.lock = false;
+        this.loop();
+    }
+
+
+
+
+
+    remove() {
+        this.lock = true;
+        this.element.parentElement.removeChild(this.element);
+    }
+
+
+
+    set_messages(new_messages, force_start = false) {
+        if (!(new_messages instanceof Array)) {
+            console.error("[TextAnimation] Unable to change messages, new_messages is not an array.");
+            return;
+        }
+
+        this.messages_list = [];
+        for (var m in new_messages) {
+            this.messages_list.push(new_messages[m]);
+        }
+
+        if (force_start == true) {
+            this.timer.status = this.timer.GENERATE;
+        }
     }
 }
