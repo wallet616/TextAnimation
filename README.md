@@ -1,4 +1,4 @@
-# CenterElements
+# TextAnimation
 
 A JavaScript library that allows you to easily center vertically html elements.
 
@@ -63,6 +63,8 @@ example_2.init({
     force_start: false
 });
 ```
+
+TODO: methods example.
 
 Since the content of element is pure `text node` there is no need to assign `reload` method on viewport size change.
 
