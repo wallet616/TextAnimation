@@ -11,7 +11,7 @@ The library does not require jQuery.
 `Add` downloaded version of `TextAnimation` library.
 
 ```
-<script src="CenterElements.js"></script>
+<script src="TextAnimation.js"></script>
 ```
 
 Everything is ready.
